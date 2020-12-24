@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Take Note</string>
+    <string name="noteInputHint">Enter note app</string>
+</resources>
