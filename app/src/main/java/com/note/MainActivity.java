@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Log.e("cap",noteText+"");
+        String noteText  =noteInput.getEditText().getText().toString();
             if(noteText!=null && noteText.length()>0){
                 NoteData note =new NoteData(Id,noteText,new Date().toString());
                 boolean result = databaseHelper.addNote(note);
