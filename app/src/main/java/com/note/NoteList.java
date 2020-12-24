@@ -65,6 +65,9 @@ public class NoteList extends AppCompatActivity  {
             NoteData noteData = noteDataList.get(viewHolder.getAdapterPosition());
             databaseHelper.deleteNote(noteData.getId());
             noteDataList.remove(viewHolder.getAdapterPosition());
+            if(noteDataList.size()==0){
+                swipeDelete.setVisibility(View.INVISIBLE);
+            }
             noteListAdpater.notifyDataSetChanged();
         }
     };
