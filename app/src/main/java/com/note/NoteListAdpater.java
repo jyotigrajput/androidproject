@@ -21,6 +21,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.util.Date;
 import java.util.List;
 
 public class NoteListAdpater extends RecyclerView.Adapter<NoteListAdpater.ViewHolder> {
@@ -60,6 +63,7 @@ public class NoteListAdpater extends RecyclerView.Adapter<NoteListAdpater.ViewHo
                 context.startActivity(intent);
             }
         });
+        holder.noteCreatedOn.setText(new PrettyTime().format(new Date(noteData.getInsertedDate())));
     }
 
     @Override
@@ -68,11 +72,12 @@ public class NoteListAdpater extends RecyclerView.Adapter<NoteListAdpater.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView noteTextView,noteId;
+        public TextView noteTextView,noteCreatedOn;
         public ImageButton deleteNoteBtn;
         public LinearLayout noteLayout;
         public ViewHolder(View view){
             super(view);
+            noteCreatedOn =view.findViewById(R.id.createdOn);
             noteTextView = view.findViewById(R.id.noteText);
             noteLayout = view.findViewById(R.id.noteLayout);
         }
